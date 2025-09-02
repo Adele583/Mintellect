@@ -187,61 +187,72 @@ export const FrameSubsection = (): JSX.Element => {
               </h2>
             </div>
 
-            <Button className="inline-flex items-start gap-2.5 px-[27px] py-[24.5px] relative flex-[0_0_auto] rounded-[33px] overflow-hidden shadow-[0px_0px_12px_#4a2cf5cc] bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.1)_100%),linear-gradient(0deg,rgba(74,44,245,1)_0%,rgba(74,44,245,1)_100%)] h-auto hover:shadow-[0px_0px_16px_#4a2cf5cc] transition-shadow">
-              <span className="w-fit mt-[-1.00px] [font-family:'Lexend',Helvetica] relative font-normal text-white text-xl tracking-[0] leading-[normal]">
+            <Button className="inline-flex items-start gap-2.5 px-[22px] py-[18px] relative flex-[0_0_auto] rounded-[33px] overflow-hidden shadow-[0px_0px_12px_#4a2cf5cc] bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.1)_100%),linear-gradient(0deg,rgba(74,44,245,1)_0%,rgba(74,44,245,1)_100%)] h-auto hover:shadow-[0px_0px_20px_#4a2cf5dd] hover:scale-105 transition-all duration-300 animate-pulse-glow">
+              <span className="w-fit mt-[-1.00px] [font-family:'Lexend',Helvetica] relative font-medium text-white text-lg tracking-[0] leading-[normal]">
                 Explore Marketplace
               </span>
             </Button>
           </header>
 
-          <div className="relative w-full h-[654px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-            <div className="relative w-[1379px] h-[531px] top-[75px]">
-              <div className="absolute w-[1378px] h-[531px] top-0 left-px">
-                <div className="absolute w-[267px] h-[267px] top-[252px] left-[663px] bg-cover bg-[50%_50%]">
-                  <div className="relative h-[267px]">
+          <div className="relative w-full h-[580px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+            <div className="relative w-[1200px] h-[450px] top-[65px] left-1/2 transform -translate-x-1/2">
+              <div className="absolute w-[1200px] h-[450px] top-0 left-0">
+                <div className="absolute w-[200px] h-[200px] top-[200px] left-[500px] bg-cover bg-[50%_50%]">
+                  <div className="relative h-[200px]">
                     <img
-                      className="absolute w-[185px] h-[199px] top-[27px] left-9"
+                      className="absolute w-[140px] h-[150px] top-[20px] left-[30px]"
                       alt="Color"
                       src="https://c.animaapp.com/mf0iy424DKI2iI/img/color.svg"
                     />
-                    <div className="absolute w-[267px] h-[267px] top-0 left-0 bg-cover bg-[50%_50%]">
+                    <div className="absolute w-[200px] h-[200px] top-0 left-0 bg-cover bg-[50%_50%]">
                       <img
-                        className="absolute w-[267px] h-[267px] top-0 left-0 object-cover"
+                        className="absolute w-[200px] h-[200px] top-0 left-0 object-cover"
                         alt="Lights"
                       />
                     </div>
                   </div>
                 </div>
 
-                {stepCards.map((card, index) => (
-                  <Card
-                    key={card.id}
-                    className={`absolute ${card.className} bg-[#3131364c] rounded-[33px] overflow-hidden border-[none] shadow-[0px_4px_16px_#00000040] backdrop-blur-[10px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(10px)_brightness(100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-[33px] before:[background:${card.gradientBorder}] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none translate-y-[-1rem] animate-fade-in opacity-0`}
-                    style={
-                      {
-                        "--animation-delay": `${600 + index * 200}ms`,
-                      } as React.CSSProperties
-                    }
-                  >
-                    <CardContent className="relative w-full h-full p-0">
-                      {card.content}
+                {stepCards.map((card, index) => {
+                  // Adjust card positions and sizes for better fit
+                  const adjustedClassName = card.className
+                    .replace(/w-\[753px\]/, 'w-[580px]')
+                    .replace(/h-\[253px\]/, 'h-[200px]')
+                    .replace(/top-0/, index === 0 ? 'top-0' : index === 1 ? 'top-0' : index === 2 ? 'top-[250px]' : 'top-[250px]')
+                    .replace(/left-0/, index === 0 ? 'left-0' : index === 1 ? 'left-[620px]' : index === 2 ? 'left-0' : 'left-[620px]');
 
-                      <div
-                        className={`absolute ${card.textPosition} flex flex-col w-[302px] items-start gap-2.5`}
-                      >
-                        <div className="relative self-stretch mt-[-1.00px] [font-family:'Lexend',Helvetica] font-medium text-[#20f7a7] text-[15px] tracking-[0] leading-[normal]">
-                          {card.step}
+                  return (
+                    <Card
+                      key={card.id}
+                      className={`absolute ${adjustedClassName} bg-[#3131364c] rounded-[25px] overflow-hidden border-[none] shadow-[0px_4px_16px_#00000040] backdrop-blur-[10px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(10px)_brightness(100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-[25px] before:[background:${card.gradientBorder}] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none translate-y-[-1rem] animate-fade-in opacity-0 hover:scale-105 hover:shadow-[0px_8px_32px_#00000060] transition-all duration-500`}
+                      style={
+                        {
+                          "--animation-delay": `${600 + index * 200}ms`,
+                        } as React.CSSProperties
+                      }
+                    >
+                      <CardContent className="relative w-full h-full p-0">
+                        <div className="absolute inset-4">
+                          {card.content}
                         </div>
-                        <h3 className="self-stretch [font-family:'Poller_One',Helvetica] relative font-normal text-white text-xl tracking-[0] leading-[normal]">
-                          {card.title}
-                        </h3>
-                        <p className="relative self-stretch [font-family:'Lexend',Helvetica] font-normal text-zinc-400 text-sm tracking-[0] leading-[normal]">
-                          {card.description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+
+                        <div
+                          className={`absolute ${card.textPosition.replace(/top-\[77px\]/, 'top-[60px]').replace(/left-\[418px\]/, 'left-[320px]')} flex flex-col w-[240px] items-start gap-2`}
+                        >
+                          <div className="relative self-stretch mt-[-1.00px] [font-family:'Lexend',Helvetica] font-medium text-[#20f7a7] text-sm tracking-[0] leading-[normal]">
+                            {card.step}
+                          </div>
+                          <h3 className="self-stretch [font-family:'Poller_One',Helvetica] relative font-normal text-white text-lg tracking-[0] leading-[normal]">
+                            {card.title}
+                          </h3>
+                          <p className="relative self-stretch [font-family:'Lexend',Helvetica] font-normal text-zinc-400 text-xs tracking-[0] leading-[normal]">
+                            {card.description}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </div>

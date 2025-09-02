@@ -373,54 +373,118 @@ export const FrameWrapperSubsection = (): JSX.Element => {
       <img className="w-full h-[354px] object-cover" alt="Frame" />
 
       {/* Footer Section */}
-      <footer className="relative w-full h-[188px]">
+      <footer className="relative w-full h-[188px] lg:h-[188px]">
         <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1200ms]">
-          <div className="inline-flex items-center gap-[188px] absolute top-[61px] left-20">
-            <img className="w-44 h-[42px]" alt="Chatgpt image aug" />
+            <div className="hidden lg:inline-flex items-center gap-[120px] absolute top-[50px] left-16">
+              <img className="w-36 h-[34px] hover:scale-105 transition-transform duration-300" alt="Chatgpt image aug" />
 
-            <div className="inline-flex items-center gap-[35px]">
-              {footerLinks.map((link, index) => (
-                <div
-                  key={index}
-                  className={`text-white text-xs [font-family:'Space_Grotesk',Helvetica] font-normal leading-[67px] whitespace-nowrap ${link.underline ? "underline" : ""}`}
-                >
-                  {link.text}
+              <div className="inline-flex items-center gap-[25px]">
+                {footerLinks.map((link, index) => (
+                  <div
+                    key={index}
+                    className={`text-white text-xs [font-family:'Space_Grotesk',Helvetica] font-normal leading-[67px] whitespace-nowrap ${link.underline ? "underline" : ""} hover:text-[#20f7a7] transition-colors duration-300 cursor-pointer hover:scale-105`}
+                  >
+                    {link.text}
+                  </div>
+                ))}
+              </div>
+
+              <div className="inline-flex items-start gap-[15px]">
+                <div className="relative w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer group animate-pulse-ring">
+                  <div className="relative w-4 h-4 bg-[url(https://c.animaapp.com/mf0iy424DKI2iI/img/vector.svg)] bg-[100%_100%] group-hover:scale-110 transition-transform duration-300">
+                    <div className="relative w-3 h-3 top-0.5 left-0.5">
+                      <img
+                        className="absolute w-2.5 h-2.5 top-0 left-0"
+                        alt="Vector"
+                        src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-9.svg"
+                      />
+                      <img
+                        className="absolute w-[2px] h-[2px] top-0 left-[9px]"
+                        alt="Vector"
+                        src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-2.svg"
+                      />
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="inline-flex items-start gap-[25px]">
-              <div className="relative w-6 h-6 bg-[url(https://c.animaapp.com/mf0iy424DKI2iI/img/vector.svg)] bg-[100%_100%]">
-                <div className="relative w-3.5 h-3.5 top-1 left-1.5">
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer animate-pulse-ring">
                   <img
-                    className="absolute w-3 h-3 top-0.5 left-0"
+                    className="w-4 h-4 hover:scale-110 transition-transform duration-300"
                     alt="Vector"
-                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-9.svg"
+                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-8.svg"
                   />
+                </div>
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer animate-pulse-ring">
                   <img
-                    className="absolute w-[3px] h-[3px] top-0 left-[11px]"
+                    className="w-4 h-4 hover:scale-110 transition-transform duration-300"
                     alt="Vector"
-                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-2.svg"
+                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-7.svg"
+                  />
+                </div>
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer animate-pulse-ring">
+                  <img
+                    className="w-5 h-4 hover:scale-110 transition-transform duration-300"
+                    alt="Vector"
+                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-1.svg"
                   />
                 </div>
               </div>
-              <img
-                className="w-6 h-[22px]"
-                alt="Vector"
-                src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-8.svg"
-              />
-              <img
-                className="w-6 h-6"
-                alt="Vector"
-                src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-7.svg"
-              />
-              <img
-                className="w-[34px] h-6"
-                alt="Vector"
-                src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-1.svg"
-              />
             </div>
-          </div>
+
+            {/* Mobile Footer */}
+            <div className="lg:hidden flex flex-col items-center gap-6 absolute top-[20px] left-1/2 transform -translate-x-1/2 w-full px-4">
+              <img className="w-32 h-[30px] hover:scale-105 transition-transform duration-300" alt="Chatgpt image aug" />
+              
+              <div className="flex flex-wrap justify-center gap-4 text-center">
+                {footerLinks.map((link, index) => (
+                  <div
+                    key={index}
+                    className={`text-white text-xs [font-family:'Space_Grotesk',Helvetica] font-normal ${link.underline ? "underline" : ""} hover:text-[#20f7a7] transition-colors duration-300 cursor-pointer`}
+                  >
+                    {link.text}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer">
+                  <div className="relative w-4 h-4 bg-[url(https://c.animaapp.com/mf0iy424DKI2iI/img/vector.svg)] bg-[100%_100%]">
+                    <div className="relative w-3 h-3 top-0.5 left-0.5">
+                      <img
+                        className="absolute w-2.5 h-2.5 top-0 left-0"
+                        alt="Vector"
+                        src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-9.svg"
+                      />
+                      <img
+                        className="absolute w-[2px] h-[2px] top-0 left-[9px]"
+                        alt="Vector"
+                        src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-2.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer">
+                  <img
+                    className="w-4 h-4"
+                    alt="Vector"
+                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-8.svg"
+                  />
+                </div>
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer">
+                  <img
+                    className="w-4 h-4"
+                    alt="Vector"
+                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-7.svg"
+                  />
+                </div>
+                <div className="w-8 h-8 bg-[#3131364c] rounded-full flex items-center justify-center hover:bg-[#4a2cf540] hover:scale-110 transition-all duration-300 cursor-pointer">
+                  <img
+                    className="w-5 h-4"
+                    alt="Vector"
+                    src="https://c.animaapp.com/mf0iy424DKI2iI/img/vector-1.svg"
+                  />
+                </div>
+              </div>
+            </div>
         </div>
       </footer>
     </section>
